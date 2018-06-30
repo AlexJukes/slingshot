@@ -10,7 +10,6 @@ public class BoundaryScript : MonoBehaviour {
 		GameObject gameControllerObject = GameObject.FindWithTag ("GameController");
 		if (gameControllerObject != null)
 		{
-			Debug.Log (gameControllerObject);
 			gameController = gameControllerObject.GetComponent <GameController>();
 		}
 		if (gameController == null)

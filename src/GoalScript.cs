@@ -21,6 +21,7 @@ public class GoalScript : MonoBehaviour {
 	
 	void OnTriggerEnter(Collider other) {
 		if (other.tag == "Player") {
+			Debug.Log ("Goooooaaaaalllll");
 			Destroy(other.gameObject);	
 			gameController.Win ();
 		}
