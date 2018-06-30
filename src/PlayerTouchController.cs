@@ -21,6 +21,9 @@ public class PlayerTouchController : MonoBehaviour {
 			Debug.Log ("Cannot find 'GameController' script");
 		}
 		isTouched = false;
+		Debug.Log("started");
+		// Debug.Log("isTouched");
+		// Debug.Log(isTouched.ToString());
 	}
 	
 	// Update is called once per frame
@@ -32,6 +35,7 @@ public class PlayerTouchController : MonoBehaviour {
 	}
 
 	void OnMouseDown() {
+		Debug.Log("mMouseDown");
 		mMouseDownPos = Input.mousePosition;
 		mMouseDownPos.z = 0;
 		Debug.Log("mMouseDownPos");
@@ -39,11 +43,13 @@ public class PlayerTouchController : MonoBehaviour {
 	}	
 
 	void OnMouseDrag() {
+		Debug.Log("OnMouseDrag");
    		Vector3 distance = Input.mousePosition - mMouseDownPos;
 		playerController.RotateShipOnTouch(distance);
  	}
 
 	void OnMouseUp() {
+		Debug.Log("OnMouseUp");
 		if (isTouched) return;
 		isTouched = true;
 		mMouseUpPos = Input.mousePosition;
@@ -55,13 +61,23 @@ public class PlayerTouchController : MonoBehaviour {
 	// override trigger events for the touch collider
 	 void OnTriggerEnter(Collider other)
  {
+	Debug.Log("OnTriggerEnter");
+	Debug.Log(other.ToString());
+	
+	 
 	if (other.tag == "Player") {
+	Debug.Log("Player");
+		
 			return;
 		}
     if (other.tag == "Planet") {
+	Debug.Log("Planet");
+		
 			return;
 		}
 	if (other.tag == "Activator") {
+	Debug.Log("Activator");
+		
 			return;
 	}
  }

@@ -25,7 +25,7 @@ public class PlayerController : MonoBehaviour {
 
 	private bool isTouched;
 
-	Transform pivot; // use an empty parent gameObject to act as a pivot point
+	// Transform pivot; // use an empty parent gameObject to act as a pivot point
 
 	Vector3 velocity;
 	
@@ -57,25 +57,26 @@ public class PlayerController : MonoBehaviour {
 		// Prevent gravity affecting object before player start
 		rb = GetComponent<Rigidbody> ();
 		rb.isKinematic = true;
+		Debug.Log("Gamescript started");
 
-		pivot = transform.parent;
+		// pivot = transform.parent;
 	}
 
 	void Update () {
-		velocity = rb.velocity.normalized;
+		// velocity = rb.velocity.normalized;
 		// if (!rb.isKinematic) {
 		//   transform.Rotate(Vector3.up * spinSpeed * Time.deltaTime);
 		// }
 		//    transform.LookAt(transform.position + rb.velocity);
 		// Debug.Log("velocity");
 		// Debug.Log(velocity);
-		if (velocity != Vector3.zero) {
+		// if (velocity != Vector3.zero) {
 		
 		// float angle = (Mathf.Atan2(velocity.y, velocity.x) * Mathf.Rad2Deg);
 		// 		Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.forward);
 		// 		pivot.rotation =  Quaternion.Slerp(pivot.rotation, rotation, spinSpeed * Time.deltaTime);
 
-			pivot.rotation = Quaternion.LookRotation(rb.velocity);
+			// pivot.rotation = Quaternion.LookRotation(rb.velocity);
 
 			// // Debug.Log("velocity");
 			// // Debug.Log(rb.velocity);
@@ -86,8 +87,8 @@ public class PlayerController : MonoBehaviour {
 		// 		Quaternion.LookRotation(velocity),
 		// 		Time.deltaTime * spinSpeed
 		// 		);
-		}
-			
+		// }
+		// Debug.Log("Still going");
 	}
 
 	public void LaunchPlayer(Vector3 direction) {
@@ -97,10 +98,11 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	public void RotateShipOnTouch(Vector3 direction) { 
+		Debug.Log("Register touch");
 		float angle = (Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg) + 90;
 		if (direction != Vector3.zero) {
 		Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.forward);
-		pivot.rotation =  Quaternion.Slerp(pivot.rotation, rotation, rotationSpeed * Time.deltaTime);
+		transform.rotation =  Quaternion.Slerp(transform.rotation, rotation, rotationSpeed * Time.deltaTime);
 		}
 	}
 

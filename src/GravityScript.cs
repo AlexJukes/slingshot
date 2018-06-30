@@ -4,7 +4,6 @@ using UnityEngine;
 
 namespace Scripts {
 
-
 public class GravityScript : MonoBehaviour
 	{
 		public float PullRadius; // Radius to pull
