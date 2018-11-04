@@ -14,6 +14,7 @@ public class GameController : MonoBehaviour {
 	private bool gameOver;
 	private bool restart;
 	private bool win;
+	private bool nextLevel;
 
 
 	void Start ()
@@ -22,9 +23,12 @@ public class GameController : MonoBehaviour {
 		restart = false;
 		win = false;
 		activated = false;
+		nextLevel = false;
 		m_RestartText.text = "";
 		m_GameOverText.text = "";
 		m_WinText.text = "";
+
+		Debug.Log(SceneManager.sceneCountInBuildSettings);
 	}
 
 	void Update () {
@@ -36,9 +40,15 @@ public class GameController : MonoBehaviour {
 			}
 		}
 
+		if (nextLevel) {
+			if (Input.GetMouseButtonDown(0)) {
+				NextLevel();
+			}
+		}
+
 		if (win) {
 			this.m_RestartText.text = "Tap to go to next level";
-			restart = true;
+			nextLevel = true;
 		}
 
 		if (gameOver) {
@@ -48,8 +58,7 @@ public class GameController : MonoBehaviour {
 	}
 
 	void NextLevel () {
-		var currentLevel = SceneManager.GetActiveScene().buildIndex;
-		SceneManager.LoadSceneAsync (currentLevel + 1);
+		 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
 	}
 
 	public void GameOver ()

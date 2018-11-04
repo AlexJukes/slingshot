@@ -75,7 +75,7 @@ public class PlayerController : MonoBehaviour {
 		// 		Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.forward);
 		// 		pivot.rotation =  Quaternion.Slerp(pivot.rotation, rotation, spinSpeed * Time.deltaTime);
 
-			pivot.rotation = Quaternion.LookRotation(rb.velocity);
+			// pivot.rotation = Quaternion.LookRotation(rb.velocity);
 
 			// // Debug.Log("velocity");
 			// // Debug.Log(rb.velocity);
