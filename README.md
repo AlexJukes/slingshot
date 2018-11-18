@@ -5,6 +5,6 @@ home.
 
 ### Demo
 
-![slingshot gameplay gif](https://imgur.com/a/yqlbNgw)
+![slingshot gameplay gif](https://imgur.com/rk8eURE)
 
 ![Homescreen](img/IMG-2849.PNG)
