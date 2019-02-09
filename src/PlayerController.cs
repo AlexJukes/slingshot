@@ -8,7 +8,6 @@ public class PlayerController : MonoBehaviour {
 	Vector3 mMouseUpPos;
 
 	Vector3 mStartPosition;
-	GameObject playerObject;
 
 	GameController gameController;
 	PlayerTouchController playerTouchController;
@@ -26,8 +25,6 @@ public class PlayerController : MonoBehaviour {
 	private bool isTouched;
 
 	Vector3 velocity;
-	
-
 
 	// Use this for initialization
 	void Start () {
