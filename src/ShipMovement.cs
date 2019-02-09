@@ -8,9 +8,11 @@ public class ShipMovement : MonoBehaviour {
 
 	public Rigidbody rb;
 
-	public float rotationSpeed = 2;
+	public float rotationSpeed = 10f;
 
-	Vector3 direction;
+	public float torque = 10f;
+
+	public float turn  = 1f;
 
 	// Use this for initialization
 	void Start () {
@@ -19,18 +21,15 @@ public class ShipMovement : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		RotateShip();
+
+		//only apply rotation after launch
+		if (!rb.isKinematic) {
+			RotateShip();
+		}
 	}
 	void RotateShip() { 
-		direction = rb.transform.forward;
-		direction.z = 0;
-		rb.transform.forward =
-			Vector3.Slerp(
-				direction, 
-				rb.velocity.normalized, 
-				Time.deltaTime
-			);
-	}
+		rb.AddTorque(transform.up * torque * turn);
+    }
 }
 
 
